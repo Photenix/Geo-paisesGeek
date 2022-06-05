@@ -1,0 +1,237 @@
+:root{
+    --box-social-media: 70px;
+    --button-color : #3ab4f5;
+    --button-color-hover : #297aa5;
+}
+
+.welcome-header{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    height: 100px;
+
+    border-bottom: 1px solid black;
+    margin: 12px 0;
+}
+
+.welcome-header img{
+    height: 125%;
+    margin-right: 8px;
+}
+
+.welcome-header-logo{
+    display: flex;
+    flex-direction: row;
+    margin: 0 24px;
+    height: var(--box-social-media);
+}
+
+.social-media{
+    min-width: var(--box-social-media);
+    margin: 0 12px 0 0;
+
+    background-color: var(--button-color);
+
+    border-radius: 10%;
+}
+
+.img-continents{
+    display: flex;
+    justify-content: center;
+    height: 250px;
+    margin: 40px 0;
+}
+
+.img-continents img{
+    height: 100%;
+    margin: 0 -12px;
+    transition-duration: 800ms;
+    cursor: pointer;
+}
+
+.img-shadow{
+    box-shadow: 2px 2px 5px #999;
+}
+
+.img-rotate-1{
+    transform: rotate(-10deg);
+}
+
+.img-rotate-2{
+    transform: rotate(10deg);
+}
+
+.img-continents img:hover{
+    transform: rotate(0deg);
+    height: 110%;
+    z-index: 1;
+}
+
+.container-country{
+    height: 100%;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-items: center;
+    padding-top: 40px;
+}
+
+
+.country-card{
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    border: solid 1px black;
+    border-radius: 10%;
+    overflow: hidden;
+    padding: 0 0 12px;
+    margin-bottom: 20px;
+}
+
+.country-card img{
+    width: 100%;
+    object-fit: scale-down;
+}
+.country-card button{
+    background-color: var(--button-color);
+    border: none;
+
+    height: 40px;
+    width: 100px;
+
+    border-radius: 15%;
+
+    color: white;
+}
+
+.country-card button:hover{
+    background-color: var(--button-color-hover);
+}
+
+@media (max-width:622px){
+    .container-country{
+        grid-template-columns : 1fr
+    }
+    .welcome-header-logo h1{
+        font-size:x-large;
+    }
+    .welcome-header-logo{
+        margin: 0 4px;
+    }
+}
+
+/*Aqui voy a colocar el div modular*/
+
+.info{
+    background-color: rgba(122, 122, 122);
+    position: fixed;
+    /*position: absolute;*/
+    opacity: 0;
+    pointer-events: none;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    transition-duration: 250ms;
+    /*pointer-events: none;*/
+}
+#info:target{
+    opacity: 1;
+    pointer-events:auto;
+}
+
+.info-container{
+    min-height: 400px;
+    background-color: aliceblue;
+    margin: 15% 10% auto;
+    padding: 20px;
+    border: solid 2px black;
+    border-radius: 2%;
+    width: 75%;
+}
+
+.info-container header{
+    margin-bottom: 12px;
+}
+
+.info-container a{
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.info-all{
+    /*
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+
+    align-items: center;
+    */
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+}
+
+.description{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-right: 20px;
+}
+
+.info-img-header{
+    width: 100%;
+    border-radius: 5%;
+}
+
+
+.info-img-footer{
+    height: 150px;
+}
+
+
+.input-set{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    /*align-items: center;*/
+    margin-bottom: 10%;
+    margin-left: 20px;
+}
+
+.input-set input{
+    /*border-radius: 10%;*/
+    width: 100%;
+    border: solid 1px black;
+    margin-bottom: 12px;
+}
+
+.input-set textarea{
+    width: 100%;
+}
+
+.input-set form{
+    justify-items: left;
+}
+
+.input-set h2{
+    text-align: center;
+}
+
+.input-set button{
+    background-color: var(--button-color);
+    border: none;
+    height: 40px;
+    width: 100px;
+    border-radius: 15%;
+    color: white;
+    margin-top: 20px;
+    margin-left: 40%;
+}
+
+.input-set button:hover{
+    background-color: var(--button-color-hover);
+}
