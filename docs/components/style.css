@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Kdam+Thmor+Pro&family=Leckerli+One&display=swap');
+
 :root{
     --box-social-media: 70px;
     --button-color : #3ab4f5;
@@ -20,6 +22,19 @@
     margin-right: 8px;
 }
 
+.logo-img{
+    animation: rotateWord 20s infinite ease-in-out;
+}
+.logo-img:hover{
+    animation: rotateWord 5s infinite ease-in-out;
+}
+
+@keyframes rotateWord {
+    100%{
+        transform: rotate(360deg);
+    }
+}
+
 .welcome-header-logo{
     display: flex;
     flex-direction: row;
@@ -27,12 +42,14 @@
     height: var(--box-social-media);
 }
 
+.welcome-header-logo h1{
+    font-family: 'Leckerli One', cursive;
+}
+
 .social-media{
     min-width: var(--box-social-media);
     margin: 0 12px 0 0;
-
     background-color: var(--button-color);
-
     border-radius: 10%;
 }
 
@@ -147,7 +164,7 @@
 .info-container{
     min-height: 400px;
     background-color: aliceblue;
-    margin: 15% 10% auto;
+    margin: 10% 10% auto;
     padding: 20px;
     border: solid 2px black;
     border-radius: 2%;
@@ -184,8 +201,10 @@
 }
 
 .info-img-header{
-    width: 100%;
+    width: 510px;
+    height: 250px;
     border-radius: 5%;
+    object-fit: cover;
 }
 
 
@@ -235,4 +254,8 @@
 
 .input-set button:hover{
     background-color: var(--button-color-hover);
+}
+
+#country-city{
+    font-family: 'Leckerli One', cursive;
 }
