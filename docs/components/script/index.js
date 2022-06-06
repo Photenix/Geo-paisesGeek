@@ -19,6 +19,11 @@ const inputCalendar2 = document.getElementById("input-calendar-2")
 const inputTextArea = document.getElementById("input-big-text")
 const inputs = document.getElementsByClassName("in")
 
+//jsons
+const jsonOLD = "./json/datos.json"
+const jsonNEW = "./json/newData.json"
+
+
 if(Number(sessionStorage["id"]) == NaN){
     sessionStorage.setItem("id",0)
 }
@@ -79,11 +84,11 @@ imgAmerica.addEventListener("click",function(event){
     //console.log(imgAmerica.id)
     imgBottomInfo.src = "./img/AMERICA.png"
     country.innerHTML = "Cargando"
-    fetch("./json/datos.json")
+    fetch(jsonNEW)
         .then(data => data.json())
         .then(json => {
             country.innerHTML =""
-            insertContainer(json.America,"America")
+            insertContainer(findByContinent(json, "America"))
         })
 })
 
@@ -91,11 +96,11 @@ imgAfrica.addEventListener("click",function(event){
     console.log(imgAfrica.id)
     imgBottomInfo.src = "./img/AFRICA.png"
     country.innerHTML = "Cargando"
-    fetch("./json/datos.json")
+    fetch(jsonNEW)
         .then(data => data.json())
         .then(json => {
             country.innerHTML =""
-            insertContainer(json.Africa,"Africa")
+            insertContainer(findByContinent(json, "Africa"))
         })
 })
 
@@ -103,23 +108,23 @@ imgAsia.addEventListener("click",function(event){
     //console.log(imgAsia.id)
     imgBottomInfo.src = "./img/ASIA.png"
     country.innerHTML = "Cargando"
-    fetch("./json/datos.json")
+    fetch(jsonNEW)
         .then(data => data.json())
         .then(json => {
             country.innerHTML =""
-            insertContainer(json.Asia,"Asia")
+            insertContainer(findByContinent(json, "Asia"))
         })
 })
 
 imgOceania.addEventListener("click",function(event){
-    console.log(imgOceania.id)
+    //console.log(imgOceania.id)
     imgBottomInfo.src = "./img/OCEANIA.png"
     country.innerHTML = "Cargando"
-    fetch("./json/datos.json")
+    fetch(jsonNEW)
         .then(data => data.json())
         .then(json => {
             country.innerHTML =""
-            insertContainer(json.Oceania,"Oceania")
+            insertContainer(findByContinent(json, "Oceania"))
         })
 })
 
@@ -127,28 +132,27 @@ imgEuropa.addEventListener("click",function(event){
     //console.log(imgEuropa.id)
     imgBottomInfo.src = "./img/EUROPA.png"
     country.innerHTML = "Cargando"
-    fetch("./json/datos.json")
+    fetch(jsonNEW)
         .then(data => data.json())
         .then(json => {
             country.innerHTML =""
-            insertContainer(json.Europa,"Europa")
+            insertContainer(findByContinent(json, "Europa"))
         })
+        
 })
 
-//lee el json y modifica el DOM
-function insertContainer(json,continet){
-    for (const key in json) {
-        if (Object.hasOwnProperty.call(json, key)) {
-            const element = json[key];
-            let tour = createCard(element,continet)
-            country.appendChild(tour)
-        }
-    }
+let findByContinent = (json, continent) =>{
+    //console.log(json)
+    return json.filter(c => c.continent == continent)
 }
 
+function insertContainer(arr){
+    arr.forEach(element => {
+        country.appendChild(createCard(element))
+    });
+}
 
-function createCard(obj,continent){
-    //console.log(obj)
+function createCard(obj){
     let card = document.createElement("div")
     let header = document.createElement("header")
     let img = document.createElement("img")
@@ -165,26 +169,25 @@ function createCard(obj,continent){
         const CoCi = document.getElementById("country-city")
         const description = document.getElementById("description")
 
-        imgInfo.src = obj.imagen
-        CoCi.innerText = `${obj.Pais} - ${obj.Ciudad}`
-        description.innerText = obj.Descripsion
+        imgInfo.src = obj.image
+        CoCi.innerText = `${obj.country} - ${obj.city}`
+        description.innerText = obj.description
 
-        inputCoCi.value = `${obj.Pais} - ${obj.Ciudad}`
-        inputContinent.value = continent
-
+        inputCoCi.value = `${obj.country} - ${obj.city}`
+        inputContinent.value = obj.continent
     })
 
     a.appendChild(button)
-
+    
     card.className = "country-card"
 
-    img.src = obj.imagen
-    h2.innerText = `${obj.Pais} - ${obj.Ciudad}`
+    img.src = obj.image
+    h2.innerText = `${obj.country} - ${obj.city}`
 
     header.appendChild(img)
     card.appendChild(header)
     card.appendChild(h2)
     card.appendChild(a)
-
+    
     return card
 }

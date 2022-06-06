@@ -94,7 +94,6 @@
     padding-top: 40px;
 }
 
-
 .country-card{
     width: 80%;
     display: flex;
@@ -129,7 +128,7 @@
     background-color: var(--button-color-hover);
 }
 
-@media (max-width:622px){
+@media (max-width:700px){
     .container-country{
         grid-template-columns : 1fr
     }
@@ -138,6 +137,9 @@
     }
     .welcome-header-logo{
         margin: 0 4px;
+    }
+    .img-continents{
+        height: 150px;
     }
 }
 
