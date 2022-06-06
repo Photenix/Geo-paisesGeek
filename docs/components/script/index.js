@@ -1,3 +1,4 @@
+//img
 const imgAmerica = document.getElementById("america")
 const imgAfrica = document.getElementById("africa")
 const imgAsia = document.getElementById("asia")
