@@ -42,10 +42,17 @@ const europa2 = new Audio("./mp3/torero.mp3")
 const oceania = new Audio("./mp3/ocean-man.mp3")
 const africa = new Audio("./mp3/african-death-dance.mp3")
 
-facebook.addEventListener("click",function(e){zombie.play()})
-twitter.addEventListener("click",function(e){shoting.play()})
-instagram.addEventListener("click",function(e){dick.play()})
-pinterest.addEventListener("click",function(e){onichan.play()})
+let audio = [
+    america,asia,europa1,
+    europa2,oceania,africa,
+    zombie,onichan,dick,
+    shoting
+]
+
+facebook.addEventListener("click",function(e){stopAllAudios();zombie.play()})
+twitter.addEventListener("click",function(e){stopAllAudios();shoting.play()})
+instagram.addEventListener("click",function(e){stopAllAudios();dick.play()})
+pinterest.addEventListener("click",function(e){stopAllAudios();onichan.play()})
 
 alert("Colocal opcion de reproduccion")
 alert("Cuidado volumen alto")
@@ -60,6 +67,12 @@ for (let i = 0; i < inputs.length; i++) {
     element.addEventListener("click",function(e) {
         element.style = ""
     })
+}
+
+function stopAllAudios(){
+    audio.forEach(element => {
+        element.pause()
+    });
 }
 
 buttonSend.addEventListener("click",function(event){
@@ -108,6 +121,7 @@ function infoErase(){
 
 imgAmerica.addEventListener("click",function(event){
     //console.log(imgAmerica.id)
+    stopAllAudios()
     america.play()
     imgBottomInfo.src = "./img/AMERICA.png"
     country.innerHTML = "Cargando"
@@ -121,6 +135,7 @@ imgAmerica.addEventListener("click",function(event){
 
 imgAfrica.addEventListener("click",function(event){
     //console.log(imgAfrica.id)
+    stopAllAudios()
     africa.play()
     imgBottomInfo.src = "./img/AFRICA.png"
     country.innerHTML = "Cargando"
@@ -134,6 +149,7 @@ imgAfrica.addEventListener("click",function(event){
 
 imgAsia.addEventListener("click",function(event){
     //console.log(imgAsia.id)
+    stopAllAudios()
     asia.play()
     imgBottomInfo.src = "./img/ASIA.png"
     country.innerHTML = "Cargando"
@@ -147,6 +163,7 @@ imgAsia.addEventListener("click",function(event){
 
 imgOceania.addEventListener("click",function(event){
     //console.log(imgOceania.id)
+    stopAllAudios()
     oceania.play()
     imgBottomInfo.src = "./img/OCEANIA.png"
     country.innerHTML = "Cargando"
@@ -160,6 +177,7 @@ imgOceania.addEventListener("click",function(event){
 
 imgEuropa.addEventListener("click",function(event){
     //console.log(imgEuropa.id)
+    stopAllAudios()
     if(getRandomInt(0,10)%2 == 0)europa1.play()
     else europa2.play()
     imgBottomInfo.src = "./img/EUROPA.png"
