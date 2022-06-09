@@ -1,4 +1,3 @@
-//img
 const imgAmerica = document.getElementById("america")
 const imgAfrica = document.getElementById("africa")
 const imgAsia = document.getElementById("asia")
@@ -24,6 +23,32 @@ const inputs = document.getElementsByClassName("in")
 const jsonOLD = "./json/datos.json"
 const jsonNEW = "./json/newData.json"
 
+//buton social media
+const facebook = document.getElementById("a1")
+const twitter = document.getElementById("a2")
+const instagram = document.getElementById("a3")
+const pinterest = document.getElementById("a4")
+
+//sound
+const zombie = new Audio("./mp3/old-sound-of-zombie-in-minecraft.mp3")
+const onichan = new Audio("./mp3/recording_15.mp3")
+const dick = new Audio("./mp3/dickhead.mp3")
+const shoting = new Audio("./mp3/dear-sister.mp3")
+
+const america = new Audio("./mp3/childish_gambino_this_is_america_official_video__cutted.mp3")
+const asia = new Audio("./mp3/asian-sound-effect.mp3")
+const europa1 = new Audio("./mp3/españa.mp3")
+const europa2 = new Audio("./mp3/torero.mp3")
+const oceania = new Audio("./mp3/ocean-man.mp3")
+const africa = new Audio("./mp3/african-death-dance.mp3")
+
+facebook.addEventListener("click",function(e){zombie.play()})
+twitter.addEventListener("click",function(e){shoting.play()})
+instagram.addEventListener("click",function(e){dick.play()})
+pinterest.addEventListener("click",function(e){onichan.play()})
+
+alert("Colocal opcion de reproduccion")
+alert("Cuidado volumen alto")
 
 if(Number(sessionStorage["id"]) == NaN){
     sessionStorage.setItem("id",0)
@@ -83,6 +108,7 @@ function infoErase(){
 
 imgAmerica.addEventListener("click",function(event){
     //console.log(imgAmerica.id)
+    america.play()
     imgBottomInfo.src = "./img/AMERICA.png"
     country.innerHTML = "Cargando"
     fetch(jsonNEW)
@@ -94,7 +120,8 @@ imgAmerica.addEventListener("click",function(event){
 })
 
 imgAfrica.addEventListener("click",function(event){
-    console.log(imgAfrica.id)
+    //console.log(imgAfrica.id)
+    africa.play()
     imgBottomInfo.src = "./img/AFRICA.png"
     country.innerHTML = "Cargando"
     fetch(jsonNEW)
@@ -107,6 +134,7 @@ imgAfrica.addEventListener("click",function(event){
 
 imgAsia.addEventListener("click",function(event){
     //console.log(imgAsia.id)
+    asia.play()
     imgBottomInfo.src = "./img/ASIA.png"
     country.innerHTML = "Cargando"
     fetch(jsonNEW)
@@ -119,6 +147,7 @@ imgAsia.addEventListener("click",function(event){
 
 imgOceania.addEventListener("click",function(event){
     //console.log(imgOceania.id)
+    oceania.play()
     imgBottomInfo.src = "./img/OCEANIA.png"
     country.innerHTML = "Cargando"
     fetch(jsonNEW)
@@ -131,6 +160,8 @@ imgOceania.addEventListener("click",function(event){
 
 imgEuropa.addEventListener("click",function(event){
     //console.log(imgEuropa.id)
+    if(getRandomInt(0,10)%2 == 0)europa1.play()
+    else europa2.play()
     imgBottomInfo.src = "./img/EUROPA.png"
     country.innerHTML = "Cargando"
     fetch(jsonNEW)
@@ -141,6 +172,12 @@ imgEuropa.addEventListener("click",function(event){
         })
         
 })
+
+//copia de mozilla
+function getRandomInt(min, max) {
+    return Math.floor(Math.random() * (max - min)) + min;
+}
+
 
 let findByContinent = (json, continent) =>{
     //console.log(json)

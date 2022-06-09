@@ -1,11 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Kdam+Thmor+Pro&family=Leckerli+One&display=swap');
 
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css');
+
 :root{
     --box-social-media: 70px;
     --button-color : #3ab4f5;
     --button-color-hover : #297aa5;
 }
-
 
 .welcome-header{
     display: flex;
@@ -52,7 +53,21 @@
     margin: 0 12px 0 0;
     background-color: var(--button-color);
     border-radius: 10%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.2s;
 }
+.social-media:hover{
+    min-width: 100px;
+    min-height: 100px;
+}
+
+.social-media i{
+    font-size: 50px;
+    color: white;
+}
+    
 
 .img-continents{
     display: flex;
@@ -143,7 +158,6 @@
         height: 150px;
     }
 }
-
 /*Aqui voy a colocar el div modular*/
 
 .info{
