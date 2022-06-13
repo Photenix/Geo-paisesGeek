@@ -58,8 +58,18 @@
                     <img src="./img/AMERICA.png" alt="" class="img-shadow img-rotate-1 info-img-footer"
                     id="info-img-footer">
                 </div>
-                <div class="input-set">
+                <form action="" class="input-set" id="form">
                     <h2>Agenda tu cita aqui</h2>
+                    <input type="text" name="" id="input-city-country" disabled>
+                    <input type="text" name="" id="input-continent" disabled>
+                    <label for="">Fecha partida</label>
+                    <input type="date" name="" id="input-calendar-1" class="in">
+                    <label for="">Fecha retorno</label>
+                    <input type="date" name="" id="input-calendar-2" class="in">
+                    <textarea name="" id="input-big-text" cols="30" rows="10" class="in"></textarea>
+                    <input class="button-info" type="submit" value="Enviar" id="send-ask">
+                </form>
+                <!-- <div class="input-set">
                     <input type="text" name="" id="input-city-country" disabled>
                     <input type="text" name="" id="input-continent" disabled>
                     <form action="">
@@ -72,7 +82,7 @@
                     </form>
                     <textarea name="" id="input-big-text" cols="30" rows="10" class="in"></textarea>
                     <button id="send-ask">Enviar</button>
-                </div>
+                </div> -->
             </div>
         </div>
     </div>
@@ -81,6 +91,6 @@
 
     </div>
 
-    <script src="./components/script/index.js"></script>
+    <script src="./components/script/index.js" type="module"></script>
 </body>
 </html>

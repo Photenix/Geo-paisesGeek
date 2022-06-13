@@ -258,7 +258,7 @@
     text-align: center;
 }
 
-.input-set button{
+.input-set .button-info{
     background-color: var(--button-color);
     border: none;
     height: 40px;
@@ -267,9 +267,10 @@
     color: white;
     margin-top: 20px;
     margin-left: 40%;
+    cursor: pointer;
 }
 
-.input-set button:hover{
+.input-set .button-info:hover{
     background-color: var(--button-color-hover);
 }
 
