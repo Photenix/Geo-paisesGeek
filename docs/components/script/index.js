@@ -21,11 +21,9 @@ const jsonOLD = "./json/datos.json"
 const jsonNEW = "./json/newData.json"
 
 import { stopAllAudios, initAudio } from './audio.js'
-
 import { america,africa,asia,europa1,europa2,oceania } from './audio.js'
 
-import { createCard } from './card.js'
-
+import { createCard } from '../module/card.js'
 import { initTravel } from './sedTravel.js'
 
 alert("Colocal opcion de reproduccion")
@@ -40,7 +38,7 @@ imgAmerica.addEventListener("click",function(event){
     //console.log(imgAmerica.id)
     stopAllAudios()
     america.play()
-    imgBottomInfo.src = "./img/AMERICA.png"
+    imgBottomInfo.src = whatImage("America")
     country.innerHTML = "Cargando"
     showCard("America")
 })
@@ -49,7 +47,7 @@ imgAfrica.addEventListener("click",function(event){
     //console.log(imgAfrica.id)
     stopAllAudios()
     africa.play()
-    imgBottomInfo.src = "./img/AFRICA.png"
+    imgBottomInfo.src = whatImage("Africa")
     country.innerHTML = "Cargando"
     showCard("Africa")
 })
@@ -58,7 +56,7 @@ imgAsia.addEventListener("click",function(event){
     //console.log(imgAsia.id)
     stopAllAudios()
     asia.play()
-    imgBottomInfo.src = "./img/ASIA.png"
+    imgBottomInfo.src = whatImage("Asia")
     country.innerHTML = "Cargando"
     showCard("Asia")
 })
@@ -67,7 +65,7 @@ imgOceania.addEventListener("click",function(event){
     //console.log(imgOceania.id)
     stopAllAudios()
     oceania.play()
-    imgBottomInfo.src = "./img/OCEANIA.png"
+    imgBottomInfo.src = whatImage("Oceania")
     country.innerHTML = "Cargando"
     showCard("Oceania")
 })
@@ -77,10 +75,27 @@ imgEuropa.addEventListener("click",function(event){
     stopAllAudios()
     if(getRandomInt(0,10)%2 == 0)europa1.play()
     else europa2.play()
-    imgBottomInfo.src = "./img/EUROPA.png"
+    imgBottomInfo.src = whatImage("Europa")
     country.innerHTML = "Cargando"
     showCard("Europa")
 })
+
+function whatImage(continent){
+    switch (continent) {
+        case "Europa":
+            return "./img/EUROPA.png"
+        case "Asia":
+            return "./img/ASIA.png"
+        case "Africa":
+            return "./img/AFRICA.png"
+        case "America":
+            return "./img/AMERICA.png"
+        case "Oceania":
+            return "./img/OCEANIA.png"
+        default:
+            return null
+    }
+}
 
 async function showCard(continent){
     let data = await fetch(jsonNEW)
@@ -90,7 +105,8 @@ async function showCard(continent){
 }
 
 let findByContinent = (json, continent) =>{
-    return json.filter(c => c.continent == continent)
+    let find = json.find(c => c.continent == continent)
+    return json.filter(c => c.continent == find.continent)
 }
 
 function insertContainer(arr){

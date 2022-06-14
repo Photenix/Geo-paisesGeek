@@ -1,4 +1,4 @@
-import { inputCoCi, inputContinent } from './index.js'
+import { inputCoCi, inputContinent } from '../script/index.js'
 
 function createCard(obj){
     let card = document.createElement("div")
@@ -11,26 +11,28 @@ function createCard(obj){
     a.href = "#info"
     button.innerText = "Ver mas"
 
-    button.addEventListener("click",function(event){
+    let { image, country, city, description:des, continent} = obj
+
+    button.addEventListener("click", () =>{
         const imgInfo = document.getElementById("img-city")
         //city country
         const CoCi = document.getElementById("country-city")
         const description = document.getElementById("description")
 
-        imgInfo.src = obj.image
-        CoCi.innerText = `${obj.country} - ${obj.city}`
-        description.innerText = obj.description
+        imgInfo.src = image
+        CoCi.innerText = `${country} - ${city}`
+        description.innerText = des
 
-        inputCoCi.value = `${obj.country} - ${obj.city}`
-        inputContinent.value = obj.continent
+        inputCoCi.value = `${country} - ${city}`
+        inputContinent.value = continent
     })
 
     a.appendChild(button)
     
     card.className = "country-card"
 
-    img.src = obj.image
-    h2.innerText = `${obj.country} - ${obj.city}`
+    img.src = image
+    h2.innerText = `${country} - ${city}`
 
     header.appendChild(img)
     card.appendChild(header)

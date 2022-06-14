@@ -158,6 +158,13 @@
         height: 150px;
     }
 }
+
+@media (max-height:700px){
+    .info-container{
+        margin: 2.5% 10% auto 10% !important;
+    } 
+}
+
 /*Aqui voy a colocar el div modular*/
 
 .info{
