@@ -26,8 +26,7 @@ import { america,africa,asia,europa1,europa2,oceania } from './audio.js'
 import { createCard } from '../module/card.js'
 import { initTravel } from './sedTravel.js'
 
-alert("Colocal opcion de reproduccion")
-alert("Cuidado volumen alto")
+Swal.fire("Colocar opcion de reproduccion \n Cuidado volumen alto")
 
 //es meme se puede quitar
 initAudio()

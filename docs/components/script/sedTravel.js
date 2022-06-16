@@ -41,11 +41,29 @@ let initTravel = () =>{
                 date_before : inputCalendar2.value,
                 coment : inputTextArea.value
             }
-            infoErase()
-            alert("Datos de tu viaje enviados")
-            sessionStorage.setItem(id,JSON.stringify(json))
-            id++
-            sessionStorage.setItem("id",id)
+            Swal.fire({
+                title: 'Mandar la informacion?',
+                text: "Con esto tendra que pagar con su alma",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                cancelButtonText: 'Nel Perro',
+                confirmButtonText: 'Ya no tengo'
+              }).then((result) => {
+                if (result.isConfirmed) {
+                    Swal.fire(
+                        'Muajajaja!',
+                        'Ya tienes tu viaje pero en asiento turista.',
+                        'success'
+                    )
+                    infoErase()
+                    sessionStorage.setItem(id,JSON.stringify(json))
+                    id++
+                    sessionStorage.setItem("id",id)
+                }
+              })
+            
         }
         else {
             const turnRed = "border: 1px solid red"
@@ -60,7 +78,12 @@ let initTravel = () =>{
             if(inputTextArea.value == "") inputTextArea.style = turnRed
             else inputTextArea.style = turnGreen
             
-            alert("Por favor ingrese todos los campos")
+            Swal.fire({
+                icon: 'error',
+                title: 'Por favor ingrese todos los campos',
+                text: 'Puto el que lo lea',
+                confirmButtonText: 'Claro perro'
+            })
         }
     })
 
